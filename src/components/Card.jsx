@@ -1,3 +1,5 @@
+import LogoutButton from './LogoutButton';
+
 import { handleAddFavorite } from '../utils/handlers';
 
 import { ImSpinner8 } from 'react-icons/im';
@@ -82,16 +84,19 @@ const Card = ({ data, city, setFavorites, loading }) => {
               </div>
             </div>
           </div>
-          <button
-            onClick={() =>
-              handleAddFavorite(city, setFavorites, {
-                temperature: Math.round(data.current.temp_c),
-              })
-            }
-            className="bg-[#ffd700] flex justify-center items-center transition w-full max-w-[450px] min-h-[30px] text-black backdrop-blur-[32px] rounded-[32px] py-1 px-6 mt-6"
-          >
-            Add to Favorites
-          </button>
+          <div className="flex flex-row gap-x-4">
+            <button
+              onClick={() =>
+                handleAddFavorite(city, setFavorites, {
+                  temperature: Math.round(data.current.temp_c),
+                })
+              }
+              className="bg-[#ffd700] flex justify-center items-center transition w-full max-w-[450px] min-h-[30px] text-black backdrop-blur-[32px] rounded-[32px] py-1 px-6 mt-6"
+            >
+              Add to Favorites
+            </button>
+            <LogoutButton />
+          </div>
         </div>
       )}
     </div>
